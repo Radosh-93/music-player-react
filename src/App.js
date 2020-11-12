@@ -32,10 +32,12 @@ function App() {
             <Player isPlaying={isPlaying}
                     setIsPlaying={setIsPlaying}
                     currentSong={currentSong}
+                    setCurrentSong={setCurrentSong}
                     songInfo={songInfo}
                     setSongInfo={setSongInfo}
+                    songs={songs}
                     audioRef={audioRef}/>
-            <Library songsInfo={songs}
+            <Library songs={songs}
                      setSongs={setSongs}
                      setCurrentSong={setCurrentSong}
                      audioRef={audioRef}
