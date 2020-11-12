@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlay, faAngleLeft, faAngleRight, faPause} from "@fortawesome/free-solid-svg-icons";
 
@@ -10,9 +10,20 @@ const Player = ({
                     audioRef,
                     currentSong,
                     setCurrentSong,
-                    songs
+                    songs,
+                    setSongs
                 }) => {
-
+    //UseEffect
+    useEffect(() => {
+        const newSongs = songs.map(item => {
+            if (item.id === currentSong.id) {
+                return {...item, active: true}
+            } else {
+                return {...item, active: false}
+            }
+        });
+        setSongs(newSongs);
+    }, [currentSong])
     //Event Handler
     const playSongHandler = () => {
         if (isPlaying) {
@@ -41,9 +52,11 @@ const Player = ({
         } else if (direction === 'skip-back') {
             setCurrentSong(songs[(currentIndex - 1) === -1 ? (songs.length - 1) : (currentIndex - 1)])
         }
-        promisePlay.then(audio => {
-            audioRef.current.play();
-        })
+        if (isPlaying) {
+            promisePlay.then(audio => {
+                audioRef.current.play();
+            })
+        }
     }
     return (
         <div className='player'>

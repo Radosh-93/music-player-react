@@ -11,14 +11,14 @@ const LibrarySong = ({song, songs, setSongs, setCurrentSong, audioRef, isPlaying
             }
         }
         //Adding active class
-        const newActiveSongs = songs.map(item => {
+        const newSongs = songs.map(item => {
             if(item.id === song.id) {
                 return {...item, active: true}
             } else {
                 return {...item, active: false}
             }
         });
-        setSongs(newActiveSongs);
+        setSongs(newSongs);
 
     }
     return (
