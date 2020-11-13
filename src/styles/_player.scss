@@ -8,9 +8,40 @@
 .time-control {
 	width: 50%;
 	display: flex;
-	input {
+	align-items: center;
+	.track {
+		background-color: lightblue;
 		width: 100%;
-		padding: 1rem 0;
+		height: 1rem;
+		position: relative;
+		border-radius: 1rem;
+		overflow: hidden;
+		input {
+			width: 100%;
+			-webkit-appearance: none;
+			background-color: transparent;
+			cursor: pointer;
+
+			&:focus {
+				outline: none;
+			}
+
+			&::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				width: 16px;
+				height: 16px;
+			}
+		}
+		.animate-track {
+			position: absolute;
+			top: 0;
+			left: -1px;
+			background-color: rgb(204,204,204);
+			height: 100%;
+			width: 100%;
+			pointer-events: none;
+			transform: translateX(0%);
+		}
 	}
 	p {
 		padding: 1rem;
