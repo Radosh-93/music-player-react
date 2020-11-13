@@ -31,8 +31,15 @@
 
 			&::-webkit-slider-thumb {
 				-webkit-appearance: none;
+				border: none;
+				background: transparent;
 				width: 16px;
 				height: 16px;
+			}
+			&::-moz-range-thumb {
+				-moz-appearance: none;
+				background: transparent;
+				border: none;
 			}
 		}
 		.animate-track {
@@ -41,7 +48,7 @@
 			left: -1px;
 			background-color: rgb(204,204,204);
 			height: 100%;
-			width: 100%;
+			width: 101%;
 			pointer-events: none;
 			transform: translateX(0%);
 		}
